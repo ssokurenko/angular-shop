@@ -5,11 +5,15 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material'
 
 import { AppComponent } from './app.component';
-import {ProductService} from "./shared/services/product.service";
+import {ProductService} from "./shared/services";
+import { HomeComponent } from './home';
+import { ProductTileComponent } from './home';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ProductTileComponent
   ],
   imports: [
     BrowserModule,
