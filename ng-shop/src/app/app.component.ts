@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MdIconRegistry } from '@angular/material';
+import {ProductService} from "./shared/services/product.service";
 
 @Component({
   selector: 'ngs-root',
@@ -10,10 +11,13 @@ import { MdIconRegistry } from '@angular/material';
 export class AppComponent {
   constructor (
       private domSanitizer: DomSanitizer,
-      private iconRegistry: MdIconRegistry) {
+      private iconRegistry: MdIconRegistry,
+      productService: ProductService) {
     this.registerIcons(new Map<string, string>([
       [ 'logo', 'assets/ngshop-logo.svg' ]
     ]));
+    productService.getAll()
+        .subscribe(products => console.log(products));
   }
 
   private registerIcons(icons: Map<string, string>) {
